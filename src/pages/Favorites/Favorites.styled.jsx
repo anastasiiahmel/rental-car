@@ -1,3 +1,4 @@
+
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
@@ -6,10 +7,10 @@ export const Container = styled.div`
   align-items: center;
   padding-top: 500px;
 `;
-
+export const Block = styled.div`
+  text-align: center;
+`;
 export const Title = styled.h1`
-  margin: 0;
-  margin-right: 10px;
   color: #ffffff;
   text-shadow:
     0 0 5px #00baff,
@@ -18,8 +19,4 @@ export const Title = styled.h1`
     0 0 40px #00baff,
     0 0 80px #00baff;
 `;
-export const StyledImage = styled.img`
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-`;
+
