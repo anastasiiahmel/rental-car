@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Button } from 'antd';
+import Icon from '..//../assets/icon/iconHeart.svg'
 
  const Container = styled.div`
   display: flex;
@@ -17,11 +18,11 @@ const ImgCatalog = styled.img`
 width: 274px;
 height: 268px;
 border-radius: 5%;
-/* margin-top: 50px; */
+
 `
 
 const RentalPrice = styled.span`
-  /* text-align: right; */
+
 `
 
 const ModelCar = styled.span`
@@ -30,12 +31,17 @@ const ModelCar = styled.span`
 
 const InformPAragraph = styled.p`
 width: 270px;
+height: 40px;
 font-size: 12px;
 color: rgba(18, 20, 23, 0.5);
+line-height: 18px;
+letter-spacing: 1,5;
 
 `
 const MakeModalYear = styled.p`
   font-size: 16px;
+  margin-top: 14px;
+  margin-bottom: 8px;
   `
 
 const BtnLearnMore = styled(Button)`
@@ -51,4 +57,9 @@ width: 274px;
 /* height: 426px; */
 
 `
-export {Container, ImgCatalog, ContainerInform, RentalPrice,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};
+const StyledIconHeart = styled(Icon)`
+  width: 32px;
+  height: 22px;
+  stroke: #000;
+`;
+export {Container, ImgCatalog, ContainerInform, RentalPrice,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform, StyledIconHeart};

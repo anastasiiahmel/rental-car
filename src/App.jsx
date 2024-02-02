@@ -2,11 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from 'components/Layout/Layout';
 import Catalog from './pages/Catalog/Catalog';
 import Favorites from './pages/Favorites/Favorites';
+import GlobalStyle from '../GlobalStyle';
 
 
 function App() {
   return (
-
+<>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/catalog" element={<Catalog />} />
@@ -14,8 +15,9 @@ function App() {
           </Route>
 
         </Route>
-      </Routes>
-
+    </Routes>
+    <GlobalStyle/>
+</>
   );
 }
 export default App;
