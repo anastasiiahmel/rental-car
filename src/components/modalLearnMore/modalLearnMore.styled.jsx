@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-
+import { Button } from 'antd';
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -16,30 +16,47 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
 width: 500px;
-height: 650px;
-border-radius: 5%;
+height: auto;
 position: relative;
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 100%;
+  border-radius:  24px;
+
 `;
 
 const CloseButton = styled.button`
   position: absolute;
   top: 10px;
-  right: 0;
+  right: 20px;
   background: none;
   border: none;
   font-size: 18px;
   cursor: pointer;
 `;
+
+const BtnRentalCar = styled(Button)`
+  background-color: rgba(52, 112, 255, 1) !important;
+  width: 168px;
+  height: 44px;
+  margin-top: 28px;
+  font-size: 14px;
+  border-radius: 12px;
+
+  &:hover,
+  &:focus {
+   background-color:rgba(11, 68, 205, 1)!important;
+  }
+`
+const RentalCarLink = styled.a`
+  text-decoration: none;
+`;
+
+
 const ImgModal = styled.img`
-display: block; 
+  display: block; 
   margin: 0 auto; 
- width: 461px; 
-  height: 280px;
+ width: 400px; 
+  height: 250px;
   border-radius: 5%;
 `
 
@@ -67,8 +84,9 @@ const MachineDescription = styled.p`
 
 const InformCar = styled.div`
 display: block; 
-margin: 0 auto; 
-width: 461px;
+
+width: 450px;
+margin-left: 50px;
 line-height: 18px;
 letter-spacing: 1,5;
 `
@@ -85,4 +103,23 @@ font-size: 14px;
 margin-top: 24px;
   margin-bottom: 8px;
 `
-export {ModalOverlay,ModalContent, CloseButton, ImgModal, MakeModalYear, AddressData, MachineDescription, InformCar, AccessoriesFunct, TitleInform}
+
+const StyledList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; 
+
+  li {
+    font-size: 12px;
+    margin-bottom: 10px;
+     background-color: rgba(249, 249, 249, 1);
+     border-radius: 35px;
+    padding: 7px 14px;
+
+  }
+`;
+
+export {BtnRentalCar, RentalCarLink, StyledList, ModalOverlay,ModalContent, CloseButton, ImgModal, MakeModalYear, AddressData, MachineDescription, InformCar, AccessoriesFunct, TitleInform}

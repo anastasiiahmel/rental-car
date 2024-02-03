@@ -9,7 +9,10 @@ import Icon from '..//../assets/icon/iconHeart.svg'
   flex-wrap: wrap;
    
 `;
+const ContainerImg = styled.div`
+ position: relative;
 
+`
 const ContainerInform = styled.div`
 margin-left: 30px;
   margin-bottom: 50px;
@@ -20,9 +23,14 @@ height: 268px;
 border-radius: 5%;
 
 `
+const RentalPrice = styled.p`
+  margin-top: 14px;
 
-const RentalPrice = styled.span`
+`
+const BlockPriceYear = styled.div`
 
+  display: flex;
+  justify-content: space-between;
 `
 
 const ModelCar = styled.span`
@@ -42,19 +50,19 @@ const MakeModalYear = styled.p`
   font-size: 16px;
   margin-top: 14px;
   margin-bottom: 8px;
+
   `
 
 const BtnLearnMore = styled(Button)`
   width: 100%;
   height: 44px;
   margin-top: 28px;
-  /* margin-bottom: 50px; */
 
 `
 
 const BlockInform = styled.div`
 width: 274px;
-/* height: 426px; */
+
 
 `
 const StyledIconHeart = styled(Icon)`
@@ -62,4 +70,22 @@ const StyledIconHeart = styled(Icon)`
   height: 22px;
   stroke: #000;
 `;
-export {Container, ImgCatalog, ContainerInform, RentalPrice,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform, StyledIconHeart};
+
+const LinkLoadMore = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: rgba(52, 112, 255, 1);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: rgba(11, 68, 205, 1);
+  }
+`
+export {BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform, StyledIconHeart};

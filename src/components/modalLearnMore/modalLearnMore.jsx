@@ -1,49 +1,88 @@
-import {  ModelCar } from '../Catalog/Catalog.styled';
-import { AccessoriesFunct, AddressData, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, TitleInform } from './modalLearnMore.styled';
+import { useEffect } from 'react';
 
+import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './modalLearnMore.styled';
 
 const Modal = ({ car, onClose }) => {
-  if (!car) {
-    return null; 
-  }
+
+  useEffect(() => {
+    const handleKeyDown = (evt) => {
+      if (evt.code === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keyup', handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleClose = () => onClose();
+
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      handleClose();
+    }
+  };
 
   return (
-    <ModalOverlay>
+    <ModalOverlay onClick={handleBackdropClick}>
       <ModalContent>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        <ImgModal src={car.img} alt={`${car.make} ${car.model}`} />
-        <InformCar>
-        <MakeModalYear>{car.make} <ModelCar>{car.model}</ModelCar>, {car.year}{' '}</MakeModalYear>
-         <AddressData>
-                {car.address && (
-                  <span>
-                    {car.address.split(' ')[car.address.split(' ').length - 2].slice(0, -1)} | {' '}
-                    {car.address.split(' ')[car.address.split(' ').length - 1]}
-                  </span>
-                )}     |   Id: {car.id}     |     Year: {car.year}     |     Type: {car.type}     |     Fuel Consumption: {car.fuelConsumption}     |     Engine Size: {car.engineSize}
-        </AddressData>
-        <MachineDescription>The {car.make} {car.model} is a stylish and spacious {car.type} known for its comfortable ride and luxurious features.</MachineDescription>
-        <TitleInform>Accessories and functionalities :
-        </TitleInform>
-        <AccessoriesFunct>
-           {car.accessories[0]} | {car.accessories[1]} | {car.functionalities[0]} | {car.accessories[2]} | {car.functionalities[1]} | {car.functionalities[2]}
-        </AccessoriesFunct>
-         <TitleInform>Rental Conditions :
-        </TitleInform>
-          <ul>
+        <CloseButton onClick={handleClose}>✖</CloseButton>
+        <ImgModal src={car?.img} alt={`${car?.make} ${car?.model}`} />
+        {car && (
+          <InformCar>
+            <MakeModalYear>{`${car.make} ${car.model}, ${car.year}`}</MakeModalYear>
+            <AddressData>
+              {car.address && (
+                <span>
+                  {car.address.split(' ')[car.address.split(' ').length - 2].slice(0, -1)} |{' '}
+                  {car.address.split(' ')[car.address.split(' ').length - 1]}
+                </span>
+              )} | Id: {car.id} | Year: {car.year} | Type: {car.type} | Fuel Consumption: {car.fuelConsumption} | Engine Size: {car.engineSize}
+            </AddressData>
+            <MachineDescription>
+              {`The ${car.make} ${car.model} is a stylish and spacious ${car.type} known for its comfortable ride and luxurious features.`}
+            </MachineDescription>
+            <TitleInform>Accessories and functionalities:</TitleInform>
+            <AccessoriesFunct>
+              {car.accessories?.slice(0, 3).map((accessory, index) => (
+                <span key={index}>{accessory} | </span>
+              ))}
+              {car.functionalities?.slice(0, 3).map((functionality, index) => (
+                <span key={index}>{functionality} | </span>
+              ))}
+            </AccessoriesFunct>
+            <TitleInform>Rental Conditions:</TitleInform>
             {car.rentalConditions && (
-              <span>
-                {car.rentalConditions.split('\n')[car.rentalConditions.split(' ').length - 7]} {' '}
-                    {car.rentalConditions.split('\n')[car.rentalConditions.split(' ').length - 6]} {' '}
-                {car.rentalConditions.split('\n')[car.rentalConditions.split(' ').length - 5]} {' '}
-                  </span>
-                )} 
-            <li>Mileage: {car.mileage}</li> 
-            <li>Price: {car.rentalPrice}</li> 
-             
-          </ul>
+              <StyledList>
+                {car.rentalConditions.split('\n').map((condition, index) => (
+                  <li key={index} className={`class-${index}`}>
+                    {index === 0 ? (
+                      <span>
+                        {condition.split(/(\d+)/).map((part, i) => (
+                          isNaN(part) ? (
+                            part
+                          ) : (
+                            <span style={{ color: 'rgba(52, 112, 255, 1)' }} key={i}>{part}</span>
+                          )
+                        ))}
+                      </span>
+                    ) : (
+                      condition
+                    )}
+                  </li>
+                ))}
+                <li>Mileage: <span style={{ color: 'rgba(52, 112, 255, 1)' }}>{car.mileage}</span></li>
+                <li>Price: <span style={{ color: 'rgba(52, 112, 255, 1)' }}>{car.rentalPrice}</span></li>
+              </StyledList>
+            )}
+            <BtnRentalCar htmlType='submit' type="primary">
+    Rental car
+</BtnRentalCar>
           </InformCar>
-        <button>Rental car</button>
+        )}
       </ModalContent>
     </ModalOverlay>
   );

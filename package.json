@@ -11,8 +11,10 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.7",
+    "@mui/material": "^5.15.7",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "antd": "^5.13.3",
     "axios": "^1.6.7",
