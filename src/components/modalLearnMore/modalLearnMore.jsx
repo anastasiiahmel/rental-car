@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './ModalLearnMore.styled';
 import { message } from 'antd';
+
 const Modal = ({ car, onClose }) => {
 
   useEffect(() => {
