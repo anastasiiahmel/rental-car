@@ -4,7 +4,7 @@ import { getAllCars } from '../../service/apiRequest';
 
 import NavBar from '../NavBar/NavBar';
 import CatalogItem from '../CatalogItem/CatalogItem';
-import ModalCar from '../ModalLearnMore/ModalLearnMore';
+import ModalCar from '../modalLearnMore/modalLearnMore';
 import Filter from '../Filter/Filter';
 import { Loader } from '../Loader/Loader';
 

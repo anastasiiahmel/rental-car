@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './ModalLearnMore.styled';
+import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './modalLearnMore.styled';
 import { message } from 'antd';
 
 const ModalCar = ({ car, onClose }) => {
@@ -94,4 +94,4 @@ const ModalCar = ({ car, onClose }) => {
   );
 };
 
-export default ModalCar;
+export  default ModalCar ;
