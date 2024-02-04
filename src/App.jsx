@@ -1,23 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
-import Catalog from './pages/Catalog/Catalog';
-import Favorites from './pages/Favorites/Favorites';
-import GlobalStyle from '../GlobalStyle';
 
+const Home = lazy(() => import('./pages/Home/Home'));
+const Catalog = lazy(() => import('./pages/Catalog/Catalog'));
 
-function App() {
+export default function App() {
   return (
-<>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/favorites" element={<Favorites />}>
-          </Route>
-
-        </Route>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="*" element={<Home />} />
+      </Route>
     </Routes>
-    <GlobalStyle/>
-</>
   );
 }
-export default App;

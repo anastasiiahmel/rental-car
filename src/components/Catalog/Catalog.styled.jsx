@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Button } from 'antd';
-import Icon from '..//../assets/icon/iconHeart.svg'
 
  const Container = styled.div`
   display: flex;
@@ -65,11 +64,12 @@ width: 274px;
 
 
 `
-const StyledIconHeart = styled(Icon)`
-  width: 32px;
-  height: 22px;
-  stroke: #000;
-`;
+const NotFilters = styled.div`
+  display: flex;
+  justify-content: center;
+  font-family: 'Manrope';
+  font-size: 24px;
+`
 
 const LinkLoadMore = styled.a`
   display: flex;
@@ -88,4 +88,4 @@ const LinkLoadMore = styled.a`
     color: rgba(11, 68, 205, 1);
   }
 `
-export {BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform, StyledIconHeart};
+export {NotFilters,BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};

@@ -1,33 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllCars } from '.';
+import { allCars } from './operations';
 
 const initialState = {
   isLoading: false,
   error: null,
   catalog: [],
+  price: '',
 };
 
 const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getAllCars.pending, (state) => {
+      .addCase(allCars.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getAllCars.fulfilled, (state, { payload }) => {
-        state.catalog = [
-          ...state.catalog,
-          ...(Array.isArray(payload) ? payload : [payload]),
-        ];
+      .addCase(allCars.fulfilled, (state, { payload }) => {
+        state.catalog = [...payload];
         state.isLoading = false;
       })
-      .addCase(getAllCars.rejected, (state, action) => {
+      .addCase(allCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });
   },
 });
 
-export const { reducer: catalogReduser } = catalogSlice;
+export const { reducer: catalogReducer, actions } = catalogSlice;

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './modalLearnMore.styled';
-
+import { AccessoriesFunct, AddressData, BtnRentalCar, CloseButton, ImgModal, InformCar, MachineDescription, MakeModalYear, ModalContent, ModalOverlay, StyledList, TitleInform } from './ModalLearnMore.styled';
+import { message } from 'antd';
 const Modal = ({ car, onClose }) => {
 
   useEffect(() => {
@@ -24,6 +24,11 @@ const Modal = ({ car, onClose }) => {
     if (event.target === event.currentTarget) {
       handleClose();
     }
+  };
+  const handleRentalCarClick = () => {
+    const phoneNumber = '+380730000000';
+    message.success(`Please call us at: ${phoneNumber}`)
+
   };
 
   return (
@@ -78,7 +83,7 @@ const Modal = ({ car, onClose }) => {
                 <li>Price: <span style={{ color: 'rgba(52, 112, 255, 1)' }}>{car.rentalPrice}</span></li>
               </StyledList>
             )}
-            <BtnRentalCar htmlType='submit' type="primary">
+            <BtnRentalCar htmlType='submit' type="primary" onClick={handleRentalCarClick}>
     Rental car
 </BtnRentalCar>
           </InformCar>

@@ -17,6 +17,7 @@ const ModalOverlay = styled.div`
 const ModalContent = styled.div`
 width: 500px;
 height: auto;
+ font-family: 'Manrope', sans-serif; 
 position: relative;
   background: #fff;
   padding: 20px;
@@ -32,9 +33,15 @@ const CloseButton = styled.button`
   border: none;
   font-size: 18px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: rgba(11, 68, 205, 1);
+  }
 `;
 
 const BtnRentalCar = styled(Button)`
+   cursor: pointer;
   background-color: rgba(52, 112, 255, 1) !important;
   width: 168px;
   height: 44px;
@@ -44,7 +51,7 @@ const BtnRentalCar = styled(Button)`
 
   &:hover,
   &:focus {
-   background-color:rgba(11, 68, 205, 1)!important;
+    background-color: rgba(11, 68, 205, 1) !important;
   }
 `
 const RentalCarLink = styled.a`

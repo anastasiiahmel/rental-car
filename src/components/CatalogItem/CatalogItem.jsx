@@ -1,12 +1,10 @@
 
 import { BlockInform, BlockPriceYear, BtnLearnMore, ContainerImg, ContainerInform, ImgCatalog, InformPAragraph, MakeModalYear, ModelCar, RentalPrice } from '../Catalog/Catalog.styled';
-import HeartIcon from '../HeartIcon/HeartIcon';
 
 const CatalogItem = ({ car, onLearnMore }) => (
   <ContainerInform>
     <ContainerImg>
       <ImgCatalog src={car.img} alt={`${car.make} ${car.model}`} />
-    <HeartIcon />
       </ContainerImg>
     <BlockInform>
       <BlockPriceYear>

@@ -1,9 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-
-import { catalogReduser } from './cars/slice';
+import { catalogReducer } from './cars/slice';
 
 const rootReducer = combineReducers({
-  catalog: catalogReduser,
+  catalog: catalogReducer,
 });
 
-export { rootReducer };
+export default rootReducer;
