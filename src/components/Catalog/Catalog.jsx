@@ -4,7 +4,7 @@ import { getAllCars } from '../../service/apiRequest';
 
 import NavBar from '../NavBar/NavBar';
 import CatalogItem from '../CatalogItem/CatalogItem';
-import Modal from '../ModalLearnMore/ModalLearnMore';
+import ModalCar from '../ModalLearnMore/ModalLearnMore';
 import Filter from '../Filter/Filter';
 import { Loader } from '../Loader/Loader';
 
@@ -120,7 +120,7 @@ const Catalog = () => {
         </LinkLoadMore>
       )}
       {selectedCar && (
-        <Modal car={selectedCar} onClose={handleCloseModal} />
+        <ModalCar car={selectedCar} onClose={handleCloseModal} />
       )}
     </div>
   );
