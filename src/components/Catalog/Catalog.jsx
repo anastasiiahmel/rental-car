@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { getAllCars } from '../../service/apiRequest';
 
-import NavBar from '../NavBar/NavBar';
 import CatalogItem from '../CatalogItem/CatalogItem';
 import ModalCar from '../modalLearnMore/modalLearnMore';
 import Filter from '../Filter/Filter';
@@ -88,7 +87,6 @@ const Catalog = () => {
 
   return (
     <div>
-      <NavBar />
       <Filter
         carMakes={carMakes}
         carPrices={carPrices}
