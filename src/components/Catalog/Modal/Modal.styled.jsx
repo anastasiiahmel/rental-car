@@ -15,14 +15,16 @@ const ModalOverlay = styled.div`
   `;
 
 const ModalContent = styled.div`
-width: 500px;
-height: auto;
- font-family: 'Manrope', sans-serif; 
-position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90%; 
+  overflow-y: auto; 
+  font-family: 'Manrope', sans-serif;
   background: #fff;
   padding: 20px;
-  border-radius:  24px;
-
+  border-radius: 24px;
 `;
 
 const CloseButton = styled.button`
@@ -41,11 +43,11 @@ const CloseButton = styled.button`
 `;
 
 const BtnRentalCar = styled(Button)`
-   cursor: pointer;
+  cursor: pointer;
   background-color: rgba(52, 112, 255, 1) !important;
   width: 168px;
   height: 44px;
-  margin-top: 28px;
+  margin-top: 10px;
   font-size: 14px;
   border-radius: 12px;
 
@@ -60,22 +62,23 @@ const RentalCarLink = styled.a`
 
 
 const ImgModal = styled.img`
+
   display: block; 
   margin: 0 auto; 
- width: 400px; 
+  width: 400px; 
   height: 250px;
   border-radius: 5%;
 `
 
 const MakeModalYear = styled.p`
-  font-size: 18px;
-  margin-top: 14px;
+  font-size: 16px;
+  margin-top: 12px;
   line-height: 18px;
   letter-spacing: 1,5;
 `
 
 const AddressData = styled.p`
-  width: 277px;
+  width: 320px;
   font-size: 12px;
   color: rgba(18, 20, 23, 0.5);
   margin-top: 8px;

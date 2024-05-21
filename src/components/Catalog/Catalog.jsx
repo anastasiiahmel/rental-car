@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getAllCars } from '../../service/apiRequest';
 
 import CatalogItem from '../CatalogItem/CatalogItem';
-import ModalCar from '../modalLearnMore/modalLearnMore';
+import  ModalCar  from './Modal/Modal';
 import Filter from '../Filter/Filter';
 import { Loader } from '../Loader/Loader';
 

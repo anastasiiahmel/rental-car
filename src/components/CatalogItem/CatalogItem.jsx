@@ -1,10 +1,11 @@
 
 import { BlockInform, BlockPriceYear, BtnLearnMore, ContainerImg, ContainerInform, ImgCatalog, InformPAragraph, MakeModalYear, ModelCar, RentalPrice } from '../Catalog/Catalog.styled';
-
 const CatalogItem = ({ car, onLearnMore }) => (
   <ContainerInform>
+    
     <ContainerImg>
       <ImgCatalog src={car.img} alt={`${car.make} ${car.model}`} />
+
       </ContainerImg>
     <BlockInform>
       <BlockPriceYear>
