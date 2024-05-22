@@ -11,6 +11,7 @@ import { Button } from 'antd';
 const ContainerImg = styled.div`
  position: relative;
 
+
 `
 const ContainerInform = styled.div`
 margin-left: 30px;
@@ -20,6 +21,7 @@ const ImgCatalog = styled.img`
 width: 274px;
 height: 268px;
 border-radius: 5%;
+
 
 `
 const RentalPrice = styled.p`
@@ -87,5 +89,13 @@ const LinkLoadMore = styled.a`
   &:focus {
     color: rgba(11, 68, 205, 1);
   }
+
 `
-export {NotFilters,BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};
+
+const BtnIcon = styled.div`
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 15px
+`
+export {BtnIcon, NotFilters,BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};

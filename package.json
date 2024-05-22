@@ -11,6 +11,7 @@
     "format": "prettier --write ./src"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
@@ -28,6 +29,7 @@
     "react-router-dom": "^6.15.0",
     "react-select": "^5.8.0",
     "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
     "styled-components": "^6.0.7",
     "styled-normalize": "^8.1.0",
     "vite-plugin-svgr": "^3.2.0"

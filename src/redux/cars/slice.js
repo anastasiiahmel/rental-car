@@ -27,4 +27,4 @@ const catalogSlice = createSlice({
   },
 });
 
-export const { reducer: catalogReducer, actions } = catalogSlice;
+export const { reducer: catalogReducer } = catalogSlice;
