@@ -1,5 +1,4 @@
-import Catalog from '../../components/Catalog/Catalog';
-
+import Catalog from '../components/Catalog/Catalog';
 
 const CatalogPage = () => {
   return (

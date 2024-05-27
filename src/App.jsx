@@ -3,8 +3,10 @@ import { lazy } from 'react';
 import Layout from 'components/Layout/Layout';
 import NavBar from './components/NavBar/NavBar';
 
-const Home = lazy(() => import('./pages/HomePage/HomePage'));
-const Catalog = lazy(() => import('./pages/CatalogPage/CatalogPage'));
+const Home = lazy(() => import('./pages/HomePage'));
+const Catalog = lazy(() => import('./pages/CatalogPage'));
+const Favorites = lazy(()=> import('./pages/FavoritesPage'))
+
 
 export default function App() {
   return (
@@ -13,7 +15,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home/>} />
-        <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>
