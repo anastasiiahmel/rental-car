@@ -101,7 +101,11 @@ const Catalog = () => {
       ) : (
         <>
           {isFiltering && filters.make ? (
-            <NotFilters>Regrettably, we&#39;re currently unable to provide any offerings related to the selected items.</NotFilters>
+            <NotFilters
+            message="Regrettably, we&#39;re currently unable to provide any offerings related to the selected items."
+            type="info"
+            showIcon
+            />    
           ) : (
             <Container>
               {carsData.map((car) => (

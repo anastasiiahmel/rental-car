@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Button } from 'antd';
+import { Alert, Button } from 'antd';
 
  const Container = styled.div`
   display: flex;
@@ -10,32 +10,30 @@ import { Button } from 'antd';
 `;
 const ContainerImg = styled.div`
  position: relative;
+ width: 274px;
 
 
 `
 const ContainerInform = styled.div`
 margin-left: 30px;
-  margin-bottom: 50px;
+margin-bottom: 50px;
 `
 const ImgCatalog = styled.img`
 width: 274px;
 height: 268px;
 border-radius: 5%;
-
-
 `
 const RentalPrice = styled.p`
   margin-top: 14px;
 
 `
 const BlockPriceYear = styled.div`
-
-  display: flex;
-  justify-content: space-between;
+display: flex;
+justify-content: space-between;
 `
 
 const ModelCar = styled.span`
-  color: #3470FF;
+color: #3470FF;
 `
 
 const InformPAragraph = styled.p`
@@ -48,10 +46,9 @@ letter-spacing: 1,5;
 
 `
 const MakeModalYear = styled.p`
-  font-size: 16px;
-  margin-top: 14px;
-  margin-bottom: 8px;
-
+font-size: 16px;
+margin-top: 14px;
+margin-bottom: 8px;
   `
 
 const BtnLearnMore = styled(Button)`
@@ -66,11 +63,11 @@ width: 274px;
 
 
 `
-const NotFilters = styled.div`
+const NotFilters = styled(Alert)`
+  width: 600px;
+  height: 80px;
   display: flex;
-  justify-content: center;
-  font-family: 'Manrope';
-  font-size: 24px;
+  margin: 0 auto;
 `
 
 const LinkLoadMore = styled.a`

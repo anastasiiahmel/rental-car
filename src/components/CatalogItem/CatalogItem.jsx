@@ -20,7 +20,8 @@ import { selectFavoriteCars } from '../../redux/cars/selectors';
 import { addFavoriteModel, removeFavoriteModel } from '../../redux/cars/favoritesSlice';
 
 const CatalogItem = ({ car, onLearnMore }) => {
-  const { id, img, make, model, year, address, type, accessories, rentalCompany, functionalities, mileage, rentalPrice } = car;
+  const { id, img, make, model, year, address, type, accessories,
+    rentalCompany, functionalities, mileage, rentalPrice } = car;
   const dispatch = useDispatch();
   const favoriteCarsId = useSelector(selectFavoriteCars);
   const [favoriteCar, setFavoriteCar] = useState(false);
