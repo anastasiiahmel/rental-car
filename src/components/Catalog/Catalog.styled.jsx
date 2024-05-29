@@ -77,8 +77,8 @@ const LinkLoadMore = styled.a`
   font-size: 16px;
   line-height: 1.5;
   text-decoration-line: underline;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   color: rgba(52, 112, 255, 1);
   cursor: pointer;
 

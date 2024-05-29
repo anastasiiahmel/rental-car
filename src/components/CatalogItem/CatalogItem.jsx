@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react';
-import { HeartOutlined } from '@ant-design/icons';
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 import {
   BlockInform,
@@ -43,17 +43,19 @@ const CatalogItem = ({ car, onLearnMore }) => {
       <ContainerImg>
         <ImgCatalog src={img} alt={`${make} ${model}`} />
         <BtnIcon
-          type="button"
-          onClick={handleFavorite}
-          shape="circle"
-          style={{ border: 'none', background: 'none' }}
-        >
-          <HeartOutlined
-            style={{
-              fontSize: '20px',
-              color: favoriteCar ? "#3470ff" : "white",
-            }}
-          />
+      type="button"
+      onClick={handleFavorite}
+      shape="circle"
+      style={{
+        border: 'none',
+        background: 'none',
+      }}
+    >
+      {favoriteCar ? (
+        <HeartFilled style={{ fontSize: '20px', color: '#3470FF' }} />
+      ) : (
+        <HeartOutlined style={{ fontSize: '20px', color: '#dde1e9'  }} />
+      )}    
         </BtnIcon>
       </ContainerImg>
       <BlockInform>

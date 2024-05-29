@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 
 import { getAllCars } from '../../service/apiRequest';
 
-import CatalogItem from '../CatalogItem/CatalogItem';
-import  ModalCar  from './Modal/Modal';
+import ModalCar from './Modal/Modal';
 import Filter from '../Filter/Filter';
 import { Loader } from '../Loader/Loader';
 
-import { Container, LinkLoadMore, NotFilters } from './Catalog.styled';
+import { LinkLoadMore } from './Catalog.styled';
+import FilterCriteria from '../Filter/FilterCriteria/FilterCriteria';
 
 const Catalog = () => {
   const [carsData, setCarsData] = useState([]);
@@ -20,7 +20,6 @@ const Catalog = () => {
     minMileage: '',
     maxMileage: '',
   });
-  const [filteredAdverts, setFilteredAdverts] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
 
   useEffect(() => {
@@ -39,27 +38,6 @@ const Catalog = () => {
     fetchData();
   }, [page]);
 
-  useEffect(() => {
-    if (isFiltering) {
-      if (Object.values(filters).some(Boolean)) {
-        const updatedFilteredAdverts = carsData.filter(({ make, rentalPrice, mileage }) => {
-          const passMakeFilter = !filters.make || make === filters.make;
-          const passPriceFilter = !filters.filteredPrices.length || filters.filteredPrices.some(
-            ({ value }) => value === rentalPrice.replace('$', '')
-          );
-          const passMinMileageFilter = !filters.minMileage || mileage >= filters.minMileage;
-          const passMaxMileageFilter = !filters.maxMileage || mileage <= filters.maxMileage;
-
-          return passMakeFilter && passPriceFilter && passMinMileageFilter && passMaxMileageFilter;
-        });
-
-        setFilteredAdverts(updatedFilteredAdverts);
-      } else {
-        setFilteredAdverts([]);
-      }
-    }
-  }, [filters, carsData, isFiltering]);
-
   const carMakes = [...new Set(carsData.map(({ make }) => make))];
   const carPrices = [...new Set(carsData.map(({ rentalPrice }) => rentalPrice.replace('$', '')))];
   const carMileage = [...new Set(carsData.map(({ mileage }) => mileage))];
@@ -71,10 +49,6 @@ const Catalog = () => {
   };
 
   const shouldShowLoadMoreButton = carsData.length % 12 === 0 && carsData.length > 0 && !isFiltering;
-
-  const handleLearnMore = (car) => {
-    setSelectedCar(car);
-  };
 
   const handleCloseModal = () => {
     setSelectedCar(null);
@@ -94,27 +68,11 @@ const Catalog = () => {
         maxMileage={maxCarMileage}
         onFilterChange={handleFilterChange}
       />
-      {isFiltering && filters.make && filteredAdverts.length > 0 ? (
-        filteredAdverts.map((car) => (
-          <CatalogItem key={car.id} car={car} onLearnMore={handleLearnMore} />
-        ))
-      ) : (
-        <>
-          {isFiltering && filters.make ? (
-            <NotFilters
-            message="Regrettably, we&#39;re currently unable to provide any offerings related to the selected items."
-            type="info"
-            showIcon
-            />    
-          ) : (
-            <Container>
-              {carsData.map((car) => (
-                <CatalogItem key={car.id} car={car} onLearnMore={handleLearnMore} />
-              ))}
-            </Container>
-          )}
-        </>
-      )}
+      <FilterCriteria
+        carsData={carsData}
+        filters={filters}
+        isFiltering={isFiltering}
+      />
       {isLoading && <Loader />}
       {!isLoading && shouldShowLoadMoreButton && (
         <LinkLoadMore variant="text" onClick={handleBtnLoadMore}>

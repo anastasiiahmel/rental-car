@@ -6,10 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items:center;
   margin-top: 50px;
-  margin-bottom: 50px;
-  align-items: flex-end;
-  margin-top: 50px;
-  gap: 8px;
+  margin-bottom: 30px;
+  align-items: center;
 `;
 
 export const SelectContainer = styled.div`
