@@ -72,6 +72,7 @@ const Catalog = () => {
         carsData={carsData}
         filters={filters}
         isFiltering={isFiltering}
+        setSelectedCar={setSelectedCar} 
       />
       {isLoading && <Loader />}
       {!isLoading && shouldShowLoadMoreButton && (

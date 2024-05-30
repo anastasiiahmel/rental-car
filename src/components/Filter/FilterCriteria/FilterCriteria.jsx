@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-
 import { NotFilters, Container } from "../../Catalog/Catalog.styled";
 import CatalogItem from "../../CatalogItem/CatalogItem";
 
-const FilterCriteria = ({ carsData, filters, isFiltering, onLearnMore }) => {
+const FilterCriteria = ({ carsData, filters, isFiltering, setSelectedCar }) => {
   const [filteredAdverts, setFilteredAdverts] = useState([]);
 
   useEffect(() => {
@@ -16,6 +15,7 @@ const FilterCriteria = ({ carsData, filters, isFiltering, onLearnMore }) => {
           );
           const passMinMileageFilter = !filters.minMileage || mileage >= filters.minMileage;
           const passMaxMileageFilter = !filters.maxMileage || mileage <= filters.maxMileage;
+
           return passMakeFilter && passPriceFilter && passMinMileageFilter && passMaxMileageFilter;
         });
 
@@ -26,11 +26,15 @@ const FilterCriteria = ({ carsData, filters, isFiltering, onLearnMore }) => {
     }
   }, [filters, carsData, isFiltering]);
 
+  const handleLearnMore = (car) => {
+    setSelectedCar(car); 
+  };
+
   return (
     <>
       {isFiltering && filters.make && filteredAdverts.length > 0 ? (
         filteredAdverts.map((car) => (
-          <CatalogItem key={car.id} car={car} onLearnMore={() => onLearnMore(car)} />
+          <CatalogItem key={car.id} car={car} onLearnMore={handleLearnMore} />
         ))
       ) : (
         <>
@@ -43,7 +47,7 @@ const FilterCriteria = ({ carsData, filters, isFiltering, onLearnMore }) => {
           ) : (
             <Container>
               {carsData.map((car) => (
-                <CatalogItem key={car.id} car={car} onLearnMore={() => onLearnMore(car)} />
+                <CatalogItem key={car.id} car={car} onLearnMore={handleLearnMore} />
               ))}
             </Container>
           )}
