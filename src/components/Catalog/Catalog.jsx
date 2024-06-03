@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
-
 import { getAllCars } from '../../service/apiRequest';
-
 import ModalCar from './Modal/Modal';
 import Filter from '../Filter/Filter';
 import { Loader } from '../Loader/Loader';
-
 import { LinkLoadMore } from './Catalog.styled';
 import FilterCriteria from '../Filter/FilterCriteria/FilterCriteria';
 
@@ -59,6 +56,7 @@ const Catalog = () => {
     setIsFiltering(true);
   };
 
+
   return (
     <div>
       <Filter
@@ -72,7 +70,7 @@ const Catalog = () => {
         carsData={carsData}
         filters={filters}
         isFiltering={isFiltering}
-        setSelectedCar={setSelectedCar} 
+        setSelectedCar={setSelectedCar}
       />
       {isLoading && <Loader />}
       {!isLoading && shouldShowLoadMoreButton && (
@@ -83,6 +81,7 @@ const Catalog = () => {
       {selectedCar && (
         <ModalCar car={selectedCar} onClose={handleCloseModal} />
       )}
+     
     </div>
   );
 };

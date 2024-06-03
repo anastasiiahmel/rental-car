@@ -3,8 +3,9 @@ import { NotFilters, Container } from "../../Catalog/Catalog.styled";
 import CatalogItem from "../../CatalogItem/CatalogItem";
 
 const FilterCriteria = ({ carsData, filters, isFiltering, setSelectedCar }) => {
-  const [filteredAdverts, setFilteredAdverts] = useState([]);
 
+  const [filteredAdverts, setFilteredAdverts] = useState([]);
+   
   useEffect(() => {
     if (isFiltering) {
       if (Object.values(filters).some(Boolean)) {

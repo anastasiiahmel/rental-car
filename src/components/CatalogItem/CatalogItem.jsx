@@ -1,5 +1,8 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavoriteCars } from '../../redux/cars/selectors';
+import { addFavoriteModel, removeFavoriteModel } from '../../redux/cars/favoritesSlice';
 
 import {
   BlockInform,
@@ -15,17 +18,14 @@ import {
   RentalPrice,
 } from '../Catalog/Catalog.styled';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFavoriteCars } from '../../redux/cars/selectors';
-import { addFavoriteModel, removeFavoriteModel } from '../../redux/cars/favoritesSlice';
-
 const CatalogItem = ({ car, onLearnMore }) => {
   const { id, img, make, model, year, address, type, accessories,
     rentalCompany, functionalities, mileage, rentalPrice } = car;
+
   const dispatch = useDispatch();
   const favoriteCarsId = useSelector(selectFavoriteCars);
   const [favoriteCar, setFavoriteCar] = useState(false);
-  
+
   useEffect(() => {
     if (favoriteCarsId?.some((favoriteCar) => favoriteCar.id === id)) {
       setFavoriteCar(true);
@@ -43,19 +43,19 @@ const CatalogItem = ({ car, onLearnMore }) => {
       <ContainerImg>
         <ImgCatalog src={img} alt={`${make} ${model}`} />
         <BtnIcon
-      type="button"
-      onClick={handleFavorite}
-      shape="circle"
-      style={{
-        border: 'none',
-        background: 'none',
-      }}
-    >
-      {favoriteCar ? (
-        <HeartFilled style={{ fontSize: '20px', color: '#3470FF' }} />
-      ) : (
-        <HeartOutlined style={{ fontSize: '20px', color: '#dde1e9'  }} />
-      )}    
+          type="button"
+          onClick={handleFavorite}
+          shape="circle"
+          style={{
+            border: 'none',
+            background: 'none',
+          }}
+        >
+          {favoriteCar ? (
+            <HeartFilled style={{ fontSize: '20px', color: '#3470FF' }} />
+          ) : (
+            <HeartOutlined style={{ fontSize: '20px', color: '#dde1e9' }} />
+          )}
         </BtnIcon>
       </ContainerImg>
       <BlockInform>
