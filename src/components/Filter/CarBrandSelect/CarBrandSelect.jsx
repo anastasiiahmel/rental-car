@@ -1,20 +1,24 @@
 
 import SelectStyles from './CarBrandSelect.styled';
 
-const CarBrandSelect = ({ selectedMake, setSelectedMake, makeOptions }) => (
+const CarBrandSelect = ({ selectedMake, setSelectedMake, makeOptions, onClear }) => (
   <SelectStyles
     id="nameSelect"
     placeholder="Enter the text"
     value={selectedMake}
     isClearable={true}
-    onChange={(selectedOption) => setSelectedMake(selectedOption)}
+    onChange={(selectedOption) => {
+      setSelectedMake(selectedOption);
+      if (!selectedOption) {
+        onClear();
+      }
+    }}
     options={makeOptions}
     components={{
       IndicatorSeparator: () => null,
     }}
   />
 );
-
 
 const PriceSelect = ({ selectedPriceStep, selectedPriceLabel, handlePriceStepChange, priceRangeOptions }) => (
   <SelectStyles
@@ -29,4 +33,4 @@ const PriceSelect = ({ selectedPriceStep, selectedPriceLabel, handlePriceStepCha
   />
 );
 
-export  {CarBrandSelect, PriceSelect};
+export { CarBrandSelect, PriceSelect };

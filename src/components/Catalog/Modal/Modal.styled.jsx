@@ -29,16 +29,17 @@ const ModalContent = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 10px;
+  top: -5px;
   right: 20px;
   background: none;
   border: none;
   font-size: 18px;
+  padding: 10px;
   cursor: pointer;
-
+  transition: color 0.5s ;
   &:hover,
   &:focus {
-    color: rgba(11, 68, 205, 1);
+    color: rgba(52, 112, 255, 1);
   }
 `;
 

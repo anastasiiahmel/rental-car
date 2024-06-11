@@ -17,7 +17,15 @@ const ContainerImg = styled.div`
 const ContainerInform = styled.div`
 margin-left: 30px;
 margin-bottom: 50px;
+
 `
+
+ const GeneralContainer = styled.div`
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ `
 const ImgCatalog = styled.img`
 width: 274px;
 height: 268px;
@@ -79,7 +87,7 @@ const LinkLoadMore = styled.a`
   text-decoration-line: underline;
   padding-top: 50px;
   padding-bottom: 50px;
-  color: rgba(52, 112, 255, 1);
+  color: с;
   cursor: pointer;
 
   &:hover,
@@ -95,4 +103,4 @@ const BtnIcon = styled.div`
   top: 10px;
   right: 15px
 `
-export {BtnIcon, NotFilters,BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};
+export {GeneralContainer, BtnIcon, NotFilters,BlockPriceYear, RentalPrice,ContainerImg, LinkLoadMore,Container, ImgCatalog, ContainerInform,ModelCar,InformPAragraph,BtnLearnMore, MakeModalYear, BlockInform};

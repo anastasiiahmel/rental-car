@@ -11,6 +11,7 @@ import {
   BtnLearnMore,
   ContainerImg,
   ContainerInform,
+  GeneralContainer,
   ImgCatalog,
   InformPAragraph,
   MakeModalYear,
@@ -39,6 +40,7 @@ const CatalogItem = ({ car, onLearnMore }) => {
   };
 
   return (
+    <GeneralContainer>
     <ContainerInform>
       <ContainerImg>
         <ImgCatalog src={img} alt={`${make} ${model}`} />
@@ -80,6 +82,7 @@ const CatalogItem = ({ car, onLearnMore }) => {
         </BtnLearnMore>
       </BlockInform>
     </ContainerInform>
+    </GeneralContainer>
   );
 };
 

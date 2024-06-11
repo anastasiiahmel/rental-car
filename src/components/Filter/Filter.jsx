@@ -1,7 +1,5 @@
 import { useState } from 'react';
-
 import { CarBrandSelect, PriceSelect } from './CarBrandSelect/CarBrandSelect';
-
 import {
   BtnSearch,
   Container,
@@ -24,15 +22,18 @@ function Filter({ carMakes, carPrices, onFilterChange }) {
   const [maxMileageValue, setMaxMileageValue] = useState('');
 
   const makeOptions = carMakes.map(make => ({ value: make, label: make }));
-
   const priceRangeOptions = [];
   for (let i = 30; i <= 500; i += 10) {
     priceRangeOptions.push({ value: i, label: `${i}` });
   }
 
   const handlePriceStepChange = selectedOption => {
-    setSelectedCarPriceStep(selectedOption.value);
-    setSelectedCarPriceLabel(selectedOption.label);
+    if (selectedOption) {
+      setSelectedCarPriceStep(selectedOption.value);
+      setSelectedCarPriceLabel(selectedOption.label);
+    } else {
+      resetFilters();
+    }
   };
 
   const filteredPrices = carPrices.filter(price => price <= selectedCarPriceStep);
@@ -51,25 +52,39 @@ function Filter({ carMakes, carPrices, onFilterChange }) {
     setMaxMileageValue(e.target.value);
   };
 
+  const resetFilters = () => {
+    setSelectedCarMake('');
+    setSelectedCarPriceStep(null);
+    setSelectedCarPriceLabel('');
+    setMinMileageValue('');
+    setMaxMileageValue('');
+    onFilterChange({
+      make: '',
+      filteredPrices: carPrices.map(price => ({ value: price, label: `${price}` })),
+      minMileage: null,
+      maxMileage: null,
+    });
+  };
+
   const handleFilterSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      parseInt(minMileageValue.replace(/,/g, ''), 10) >
-      parseInt(maxMileageValue.replace(/,/g, ''), 10)
-    ) {
+    const minMileage = minMileageValue ? parseInt(minMileageValue.replace(/,/g, ''), 10) : null;
+    const maxMileage = maxMileageValue ? parseInt(maxMileageValue.replace(/,/g, ''), 10) : null;
+
+    if (minMileage !== null && maxMileage !== null && minMileage > maxMileage) {
       message.error('The maximum mileage must exceed the minimum mileage.');
       return;
     }
 
     const newFilters = {
       make: selectedCarMake ? selectedCarMake.value : '',
-      filteredPrices: filteredPrices.map(price => ({
+      filteredPrices: selectedCarPriceStep ? filteredPrices.map(price => ({
         value: price,
         label: `${price}`,
-      })),
-      minMileage: parseInt(minMileageValue.replace(/,/g, ''), 10),
-      maxMileage: parseInt(maxMileageValue.replace(/,/g, ''), 10),
+      })) : carPrices.map(price => ({ value: price, label: `${price}` })),
+      minMileage,
+      maxMileage,
     };
 
     onFilterChange(newFilters);
@@ -83,6 +98,7 @@ function Filter({ carMakes, carPrices, onFilterChange }) {
           selectedMake={selectedCarMake}
           setSelectedMake={setSelectedCarMake}
           makeOptions={makeOptions}
+          onClear={resetFilters}
         />
       </SelectContainer>
 
@@ -90,10 +106,10 @@ function Filter({ carMakes, carPrices, onFilterChange }) {
         <Label htmlFor="priceSelect">Price / 1 hour</Label>
         <PriceSelect
           selectedPriceStep={selectedCarPriceStep}
-          setSelectedPriceStep={setSelectedCarPriceStep}
           selectedPriceLabel={selectedCarPriceLabel}
           handlePriceStepChange={handlePriceStepChange}
           priceRangeOptions={priceRangeOptions}
+          onClear={resetFilters}
         />
       </SelectContainer>
 
