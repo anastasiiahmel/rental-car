@@ -15,6 +15,7 @@ export const SelectContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: none;
+
 `;
 
 export const InputContainer = styled.div`

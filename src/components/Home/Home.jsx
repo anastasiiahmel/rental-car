@@ -1,10 +1,9 @@
 import Video from './VideoBg/VideoBg';
 
-
 function Home() {
   return (
     <>
-      <Video/>  
+      <Video />
     </>
   );
 }
