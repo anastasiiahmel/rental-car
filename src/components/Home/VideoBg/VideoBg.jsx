@@ -1,4 +1,4 @@
-import videoBg from '..//..//..//assets/video_bg.mp4';
+import videoCars from '..//..//..//assets/videoCars.mp4';
 import {
   BgVideo,
   ContainerVideoInform,
@@ -7,10 +7,22 @@ import {
   Title,
 } from './VideoBg.styled';
 
-function Video() {
+import { useEffect, useRef } from 'react';
+
+const VideoBg = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  }, []);
+
   return (
     <>
-      <BgVideo muted loop src={videoBg} autoPlay></BgVideo>
+      <BgVideo ref={videoRef} width="100%" muted loop autoPlay>
+        <source src={videoCars} type="video/mp4" />
+      </BgVideo>
       <ContainerVideoInform>
         <Title>Go to a free life!</Title>
         <Item>And we will help you choose the right wheels </Item>
@@ -18,5 +30,6 @@ function Video() {
       </ContainerVideoInform>
     </>
   );
-}
-export default Video;
+};
+
+export default VideoBg;

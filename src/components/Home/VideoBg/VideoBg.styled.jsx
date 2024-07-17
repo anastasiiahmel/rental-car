@@ -20,9 +20,8 @@ const ContainerVideoInform = styled.div`
   align-items: center;
 `;
 const Title = styled.h1`
-  margin-top: -40px;
   font-size: 40px;
-  color: #fff;
+  color: #80bfff;
 `;
 
 const Item = styled.p`
